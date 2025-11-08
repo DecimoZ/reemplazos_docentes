@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Reemplazos Docentes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Gestión de Reemplazos y Horarios Docentes</h1>
+        <p>Consulta la disponibilidad y horarios de profesores en tiempo real.</p>
+    </header>
+
+    <main class="main-container">
+        
+        <section class="tools-panel">
+            <h2>🔎 Búsqueda de Disponibilidad</h2>
+
+            <form id="search-form">
+                <label for="search-day">Día:</label>
+                <select id="search-day" required>
+                    <option value="">Seleccione Día</option>
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miércoles">Miércoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                </select>
+
+                <label for="search-time">Hora de Inicio:</label>
+                <select id="search-time" required>
+                    <option value="">Seleccione Hora</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
+
+                <button type="button" id="btn-search-availability">Buscar Profesor Libre</button>
+            </form>
+
+            <div class="results-box">
+                <h3>Estado de Búsqueda:</h3>
+                <p id="search-status">Listo para buscar.</p>
+                <h3>Profesores Disponibles:</h3>
+                <ul id="teachers-list">
+                    <li>No hay resultados aún.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="calendar-panel">
+            
+            <h2>🗓️ Horario y Disponibilidad</h2>
+            
+            <div class="professor-selection">
+                <label for="profesor-select">Ver Horario de:</label>
+                <select id="profesor-select">
+                    <option value="">Cargando profesores...</option>
+                </select>
+            </div>
+
+            <div class="horario-container">
+                <table class="horario-table">
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="horario-body">
+                        </tbody>
+                </table>
+            </div>
+
+        </section>
+        
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Sistema de Reemplazos Docentes. Desarrollado con PHP, MySQL y JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
