@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mantenedor de Profesores</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="main-header">
+        <h1>Mantenedor de Profesores</h1>
+    </header>
+
+    <main class="main-container">
+        <section class="management-panel">
+            <div class="panel-header">
+                <h2>👩‍🏫 Listado de Profesores</h2>
+                <p>Administra los docentes registrados en el sistema.</p>
+            </div>
+
+            <div class="form-actions" id="top-actions">
+                <button type="button" class="btn btn-primary" id="btn-new-professor">Crear Profesor</button>
+            </div>
+
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Profesores</h3>
+                </div>
+                <table class="professor-table">
+                    <thead>
+                        <tr>
+                            <th>RUT / ID</th>
+                            <th>Acciones</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Especialidad</th>
+                            <th>Teléfono</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="professor-table-body">
+                        <tr data-id="12.345.678-9">
+                            <td>12.345.678-9</td>
+                            <td class="actions-cell">
+                                <div class="actions-group">
+                                    <button type="button" class="btn btn-secondary btn-edit" data-id="12.345.678-9">Editar</button>
+                                    <button type="button" class="btn btn-danger btn-delete" data-id="12.345.678-9">Eliminar</button>
+                                </div>
+                            </td>
+                            <td>María González</td>
+                            <td>maria.gonzalez@institucion.cl</td>
+                            <td>Matemática</td>
+                            <td>9 1234 5678</td>
+                            <td><span class="status-pill is-active">Activo</span></td>
+                        </tr>
+                        <tr data-id="16.789.012-3">
+                            <td>16.789.012-3</td>
+                            <td class="actions-cell">
+                                <div class="actions-group">
+                                    <button type="button" class="btn btn-secondary btn-edit" data-id="16.789.012-3">Editar</button>
+                                    <button type="button" class="btn btn-danger btn-delete" data-id="16.789.012-3">Eliminar</button>
+                                </div>
+                            </td>
+                            <td>Pedro Ramírez</td>
+                            <td>pedro.ramirez@institucion.cl</td>
+                            <td>Lenguaje</td>
+                            <td>9 8765 4321</td>
+                            <td><span class="status-pill is-active">Activo</span></td>
+                        </tr>
+                        <tr data-id="9.654.321-0">
+                            <td>9.654.321-0</td>
+                            <td class="actions-cell">
+                                <div class="actions-group">
+                                    <button type="button" class="btn btn-secondary btn-edit" data-id="9.654.321-0">Editar</button>
+                                    <button type="button" class="btn btn-danger btn-delete" data-id="9.654.321-0">Eliminar</button>
+                                </div>
+                            </td>
+                            <td>Ana Fernández</td>
+                            <td>ana.fernandez@institucion.cl</td>
+                            <td>Ciencias</td>
+                            <td>9 5555 6789</td>
+                            <td><span class="status-pill is-inactive">Inactivo</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav class="table-pagination" aria-label="Paginación de profesores">
+                    <button type="button" class="btn btn-outline" id="btn-prev-page" disabled>&laquo; Anterior</button>
+                    <ul class="pagination-list">
+                        <li><button type="button" class="pagination-item is-active" data-page="1">1</button></li>
+                        <li><button type="button" class="pagination-item" data-page="2">2</button></li>
+                        <li><button type="button" class="pagination-item" data-page="3">3</button></li>
+                    </ul>
+                    <button type="button" class="btn btn-outline" id="btn-next-page">Siguiente &raquo;</button>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Sistema de Reemplazos Docentes. Desarrollado con PHP, MySQL y JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -90,73 +90,329 @@ button {
 
 .horario-table {
     width: 100%;
-    /* Muy importante: collapse mantiene los bordes juntos y elimina dobles líneas */
-    border-collapse: collapse; 
+    border-collapse: collapse;
     margin-top: 15px;
-    table-layout: fixed; 
+    table-layout: fixed;
 }
 
 .horario-table th {
     background-color: var(--color-primary);
     color: white;
-    padding: 10px 5px; /* Aumentamos el padding para mejor lectura */
-    /* Bordes sólidos para los encabezados */
-    border: 2px solid var(--color-primary-dark); 
+    padding: 10px 5px;
+    border: 2px solid var(--color-primary);
     font-size: 0.95em;
     font-weight: bold;
 }
 
 .horario-table td {
-    /* Bordes definidos para todas las celdas de la grilla */
-    border: 1px solid var(--color-border); 
-    padding: 0; 
+    border: 1px solid var(--color-border);
+    padding: 0;
     height: var(--calendar-cell-height);
     text-align: center;
 }
 
-/* Columna de la hora (Fija y Estilizada) */
 .time-cell {
-    width: 70px; 
+    width: 70px;
     min-width: 70px;
-    background-color: #e3f2fd; /* Fondo azul muy claro para diferenciar la columna */
+    background-color: #e3f2fd;
     font-weight: bold;
     font-size: 0.9em;
     padding: 5px;
-    /* Borde derecho más grueso para separar el encabezado */
-    border-right: 2px solid var(--color-border); 
+    border-right: 2px solid var(--color-border);
 }
-
-/* ==================================== */
-/* 4. Clases de Estado (Visualización)  */
-/* ==================================== */
 
 .time-slot {
     font-size: 0.8em;
-    font-weight: 600; /* Un poco más de grosor */
-    line-height: var(--calendar-cell-height); 
-    transition: background-color 0.3s; /* Transición suave al pintar */
+    font-weight: 600;
+    line-height: var(--calendar-cell-height);
+    transition: background-color 0.3s;
 }
 
 .status-occupied {
-    background-color: var(--color-danger); /* Rojo fuerte */
+    background-color: var(--color-danger);
     color: white;
-    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2); /* Pequeña sombra interna */
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 .status-available {
-    background-color: var(--color-success); /* Verde fuerte */
+    background-color: var(--color-success);
     color: white;
 }
 
 .status-unknown {
-    background-color: #f7f7f7; /* Gris muy claro para celdas sin estado */
-    color: transparent; 
+    background-color: #f7f7f7;
+    color: transparent;
 }
 
-/* Opcional: Estilo de Hover para las celdas */
 .horario-table td:not(.time-cell):hover {
     cursor: default;
-    /* Se oscurece ligeramente al pasar el ratón */
-    background-color: #e0e0e0 !important; 
+    background-color: #e0e0e0 !important;
     opacity: 0.9;
 }
+
+    /* ==================================== */
+    /* 5. Mantenedor de Profesores          */
+    /* ==================================== */
+
+    .management-panel {
+        flex: 1 1 100%;
+    }
+
+    .panel-header {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 18px;
+    }
+
+    .panel-header p {
+        color: #6c7a8c;
+        font-size: 0.95em;
+    }
+
+    .form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        border: none;
+        font-size: 0.95em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: auto;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 86, 179, 0.18);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #0056b3, #1f6cd4);
+        color: white;
+    }
+
+    .btn-secondary {
+        background: linear-gradient(135deg, #3f4c6b, #556079);
+        color: white;
+    }
+
+    .btn-danger {
+        background: linear-gradient(135deg, #dc3545, #f26274);
+        color: white;
+    }
+
+    .table-card {
+        background: transparent;
+        padding: 0;
+        border: none;
+    }
+
+    .table-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    .table-header h3 {
+        font-size: 1.2em;
+        color: #33415c;
+    }
+
+    .professor-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 20px;
+    }
+
+    .professor-table thead {
+        display: none;
+    }
+
+    .professor-table tbody {
+        display: grid;
+        gap: 20px;
+    }
+
+    .professor-table tbody tr {
+        display: grid;
+        grid-template-columns: minmax(140px, 0.9fr) minmax(200px, 1fr) minmax(200px, 1.1fr) minmax(220px, 1.2fr) minmax(160px, 1fr) minmax(150px, 0.9fr) minmax(130px, 0.8fr);
+        gap: 16px;
+        padding: 22px 24px;
+        background: linear-gradient(140deg, rgba(0, 86, 179, 0.08), rgba(255, 255, 255, 0.95));
+        border-radius: 18px;
+        box-shadow: 0 18px 40px rgba(0, 86, 179, 0.12);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .professor-table tbody tr:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 24px 48px rgba(0, 86, 179, 0.18);
+    }
+
+    .professor-table tbody td {
+        border: none;
+        padding: 0;
+        color: #2f3a4a;
+        font-size: 0.95em;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        justify-content: center;
+    }
+
+    .professor-table tbody td::before {
+        font-size: 0.72em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #5d6a7f;
+    }
+
+    .professor-table tbody td:nth-child(1)::before { content: "RUT / ID"; }
+    .professor-table tbody td:nth-child(2)::before { content: "Acciones"; }
+    .professor-table tbody td:nth-child(3)::before { content: "Nombre"; }
+    .professor-table tbody td:nth-child(4)::before { content: "Correo"; }
+    .professor-table tbody td:nth-child(5)::before { content: "Especialidad"; }
+    .professor-table tbody td:nth-child(6)::before { content: "Teléfono"; }
+    .professor-table tbody td:nth-child(7)::before { content: "Estado"; }
+
+    .professor-table tbody td.actions-cell {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .professor-table tbody td.actions-cell .actions-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .professor-table tbody td.actions-cell .btn {
+        min-width: 120px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-size: 0.85em;
+        justify-content: center;
+    }
+
+    .professor-table tbody td.actions-cell .btn + .btn {
+        margin-left: 0;
+    }
+
+    .status-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.75em;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+
+    .status-pill.is-active {
+        background-color: rgba(40, 167, 69, 0.15);
+        color: #1f8f3a;
+    }
+
+    .status-pill.is-inactive {
+        background-color: rgba(220, 53, 69, 0.15);
+        color: #b32031;
+    }
+
+    .table-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .table-pagination .btn {
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: white;
+        color: #0056b3;
+        border: 1px solid rgba(0, 86, 179, 0.2);
+    }
+
+    .table-pagination .btn[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .pagination-list {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pagination-item {
+        padding: 10px 16px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        background: rgba(0, 86, 179, 0.12);
+        color: #084080;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .pagination-item:hover {
+        background: rgba(0, 86, 179, 0.22);
+        transform: translateY(-1px);
+    }
+
+    .pagination-item.is-active {
+        background: #0056b3;
+        color: white;
+        box-shadow: 0 12px 24px rgba(0, 86, 179, 0.25);
+    }
+
+    @media (max-width: 768px) {
+        .table-pagination {
+            flex-direction: column;
+        }
+
+        .pagination-list {
+            gap: 6px;
+        }
+
+        .pagination-item {
+            padding: 8px 12px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .form-actions {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .professor-table tbody tr {
+            grid-template-columns: 1fr;
+        }
+
+        .professor-table tbody td.actions-cell {
+            gap: 16px;
+        }
+
+        .professor-table tbody td.actions-cell .actions-group {
+            flex-direction: column;
+        }
+    }
