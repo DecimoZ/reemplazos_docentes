@@ -331,6 +331,169 @@ button {
         color: #b32031;
     }
 
+    /* ==================================== */
+    /* 6. Diseño Home                       */
+    /* ==================================== */
+
+    .home-hero {
+        position: relative;
+        min-height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+        background: linear-gradient(120deg, rgba(0, 86, 179, 0.95), rgba(15, 100, 200, 0.85)),
+                    url('https://images.unsplash.com/photo-1523580846011-d3a5bc211d2b?auto=format&fit=crop&w=1400&q=60') center/cover;
+        color: white;
+        overflow: hidden;
+    }
+
+    .home-hero__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(0, 86, 179, 0.85), rgba(0, 43, 102, 0.7));
+        z-index: 1;
+    }
+
+    .home-hero__content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .home-hero__content h2 {
+        font-size: 2.4em;
+        line-height: 1.2;
+        font-weight: 700;
+    }
+
+    .home-hero__content p {
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0 auto;
+        max-width: 520px;
+    }
+
+    .home-hero__actions {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .home-hero .btn-outline {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: white;
+    }
+
+    .home-hero .btn-outline:hover {
+        border-color: white;
+    }
+
+    .home-modules {
+        background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+        padding: 60px 20px 80px;
+    }
+
+    .home-container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .home-modules__header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .home-modules__header h3 {
+        font-size: 1.8em;
+        color: #1f2d4a;
+        margin-bottom: 12px;
+    }
+
+    .home-modules__header p {
+        color: #586273;
+        font-size: 0.98em;
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    .home-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+    }
+
+    .home-card {
+        background: white;
+        border-radius: 24px;
+        padding: 32px 28px;
+        box-shadow: 0 20px 50px rgba(0, 86, 179, 0.12);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        border: 1px solid rgba(0, 86, 179, 0.06);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .home-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 30px 60px rgba(0, 86, 179, 0.16);
+    }
+
+    .home-card__icon {
+        font-size: 2.3em;
+    }
+
+    .home-card h4 {
+        color: #1f2d4a;
+        font-size: 1.35em;
+    }
+
+    .home-card p {
+        color: #556070;
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+
+    .home-card .btn {
+        align-self: flex-start;
+        min-width: 190px;
+    }
+
+    .home-card .btn.btn-secondary {
+        background: linear-gradient(135deg, #3f4c6b, #556079);
+    }
+
+    .home-card--placeholder {
+        opacity: 0.8;
+        background: linear-gradient(135deg, rgba(120, 133, 156, 0.12), rgba(255, 255, 255, 0.9));
+    }
+
+    .home-card--placeholder .btn {
+        cursor: default;
+    }
+
+    @media (max-width: 768px) {
+        .home-hero__content h2 {
+            font-size: 1.9em;
+        }
+
+        .home-card {
+            text-align: center;
+            align-items: center;
+        }
+
+        .home-card .btn {
+            width: 100%;
+        }
+    }
+
     .table-pagination {
         display: flex;
         align-items: center;
